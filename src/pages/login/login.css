@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    -webkit-transition: background 0.5s, color 0.5s;
+}
+.contain{
+  background-image: url('./bg.jpg');
+  height: 100%;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login{
+    background-color: rgba(255, 255, 255, 0.829);
+    width: 480px;
+    height: 38%;    
+    text-align: center;
+    padding: 50px;   
+    padding-top: 34px; 
+    position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    margin: auto;
+    border-radius: 12px;
+}
+
+.lgn_label{
+    margin: 30px;
+}
+
+.input{
+    height: 45px;
+    margin-bottom: 25px;
+}
+
+.but{
+    width: 27%;
+    height: 10%;
+    font-size: 17px;
+}
