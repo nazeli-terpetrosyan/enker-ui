@@ -50,8 +50,9 @@ class Signup extends Component {
       )
     }
     return (
-      <div className="contains">
-        <h1 className="display-4 text-secondary">Create an Account</h1>
+      <div className="contain2">
+      <div className="signup">
+        <h1 className="crac">Create an Account</h1>
         <Form className="mt-5" onSubmit={e => this.handleSubmit(e)}>
           {
             this.props.userError ? 
@@ -93,11 +94,12 @@ class Signup extends Component {
               }
             </Form.Control>
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Signup
+          <Button onClick={(e) => {this.handleSubmit(e)}} className="but2" variant="primary" type="submit">
+            Sign up
           </Button>
         </Form>
-      </div>      
+      </div>    
+      </div>  
     )
   }
 }

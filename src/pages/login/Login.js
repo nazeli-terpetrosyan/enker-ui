@@ -53,7 +53,7 @@ export default class Login extends Component {
           <Form.Group controlId="formBasicPassword">
             <Form.Control onChange={(e) => { this.handleChange("password", e.target.value) }} className="input" type="password" placeholder="Password" />
           </Form.Group>
-          <span className="signup">Don't have an account? Sign up <Link to="/signup" className="sign_l">here</Link>!</span>
+          <span className="signup_l">Don't have an account? Sign up <Link to="/signup" className="sign_l">here</Link>!</span>
           <br />
           <Button onClick={(e) => {this.handleSubmit(e)}} className="but" variant="primary" type="submit">
             Submit
