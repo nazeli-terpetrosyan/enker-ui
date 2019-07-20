@@ -16,3 +16,8 @@
 .global-nav {
   height: 57px;
 }
+
+.hello{
+  color: white;
+  font-size: 18px;
+}

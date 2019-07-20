@@ -41,6 +41,8 @@ export const loginUser = (email, password) => {
      */
     axios.get(`${apiHost}/students/${email}`, {auth: {username: email, password: password}})
     .then(response => {
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('password', password);
       dispatch({
         type: 'LOGIN_USER',
         payload: response.data

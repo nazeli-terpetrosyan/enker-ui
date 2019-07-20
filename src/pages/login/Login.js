@@ -56,7 +56,7 @@ export default class Login extends Component {
           <span className="signup_l">Don't have an account? Sign up <Link to="/signup" className="sign_l">here</Link>!</span>
           <br />
           <Button onClick={(e) => {this.handleSubmit(e)}} className="but" variant="primary" type="submit">
-            Submit
+           Login
           </Button>
         </Form>
         </div>
