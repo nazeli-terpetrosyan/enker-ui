@@ -15,6 +15,10 @@ const user = (state = {data: null, error: null}, action) => {
       return { data: action.payload, error: null};
     case 'CREATE_USER_ERROR':
       return { data: null, error: action.payload};
+    case 'LOGIN_USER':
+      return { data: action.payload, error: null};
+    case 'LOGIN_USER_ERROR':
+      return { data: null, error: action.payload};
     default:
       return state
   }

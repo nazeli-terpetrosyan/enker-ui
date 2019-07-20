@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
+import './signup.css';
+
 /**
  * Sign up page EXTRA CREDIT - not required
  */
@@ -48,17 +50,13 @@ class Signup extends Component {
       )
     }
     return (
-      <Container className="mt-3">
+      <div className="contains">
         <h1 className="display-4 text-secondary">Create an Account</h1>
         <Form className="mt-5" onSubmit={e => this.handleSubmit(e)}>
           {
             this.props.userError ? 
               <Alert variant="danger">{this.props.userError}</Alert>  : null
           }
-          <Form.Group controlId="formEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control onChange={(e) => { this.handleChange("email", e.target.value) }} type="email" placeholder="Enter email" />
-          </Form.Group>
           <Form.Group controlId="formFirstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control onChange={(e) => { this.handleChange("firstName", e.target.value) }} type="text" placeholder="Enter first name" />
@@ -67,8 +65,12 @@ class Signup extends Component {
             <Form.Label>Last Name</Form.Label>
             <Form.Control onChange={(e) => { this.handleChange("lastName", e.target.value) }} type="text" placeholder="Enter last name" />
           </Form.Group>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control onChange={(e) => { this.handleChange("email", e.target.value) }} type="email" placeholder="Enter email" />
+          </Form.Group>
           <Form.Group controlId="formPassword">
-            <Form.Label>Passowrd</Form.Label>
+            <Form.Label>Passoword</Form.Label>
             <Form.Control onChange={(e) => { this.handleChange("password", e.target.value) }} type="password" placeholder="Enter password" />
           </Form.Group>
           <Form.Group controlId="formLearningTarget">
@@ -95,7 +97,7 @@ class Signup extends Component {
             Signup
           </Button>
         </Form>
-      </Container>      
+      </div>      
     )
   }
 }
