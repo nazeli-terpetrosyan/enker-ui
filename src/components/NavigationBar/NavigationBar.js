@@ -47,7 +47,7 @@ export default ({user, location}) => (
          * 2. Button to logout user
          * 3. If connected to peer a button to chat
          */
-        <span className="hello">Hello, {user.firstName}!</span>
+        // <span className="hello">Hello, {user.firstName}!</span>
       }
     </Navbar>
   </div>

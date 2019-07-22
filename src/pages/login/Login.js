@@ -38,7 +38,7 @@ export default class Login extends Component {
     if (this.props.user) {
       return (
         <Redirect to={{
-          pathname: '/profile',
+          pathname: '/search',
         }} />
       )
     }

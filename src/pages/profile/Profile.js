@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-// TODO use --> import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import { Form, Alert, Button} from 'react-bootstrap';
 
 /**
  * React component for Profile page
  */
 class Profile extends Component {
-  constructor() {
+  constructor(props) {
     // TODO: set state based on props, drop down values for learningTargets, locations, form event handlers
     super(props);
     this.learningTargets = ["Animation", "Game Development", "Filmmaking", "Web Development"]
     this.locations = ["Yerevan",  "Gyumri", "Stepnakert", "Dilijan"]
     this.state = {
-      email: null,
-      firstName: null,
-      lastName: null,
-      password: null,
-      learningTargets: [],
-      location: this.locations[0]
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      password: user.password,
+      learningTargets: user.learningTargets,
+      location: user.location
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,12 +51,10 @@ class Profile extends Component {
         }} />
       )
     }
-  }
-
-  return (
-    <div className="contain3">
-      <div className="profile">
-        <h1 className="profile_l">Profile Page</h1>
+    return (
+      <div className="contain3">
+      <div className="prof_page">
+        <h1 className="p_page_l">Profile Page</h1>
         <Form className="mt-5" onSubmit={e => this.handleSubmit(e)}>
           {
             this.props.userError ? 
@@ -64,23 +62,23 @@ class Profile extends Component {
           }
           <Form.Group controlId="formFirstName">
             <Form.Label>First Name</Form.Label>
-            <Form.Control onChange={(e) => { this.handleChange("firstName", e.target.value) }} type="text" placeholder="Enter first name" value="" />
+            <Form.Control onChange={(e) => { this.handleChange("firstName", e.target.value) }} type="text" placeholder="Enter first name" value={user.firstName}/>
           </Form.Group>
           <Form.Group controlId="formLastName">
             <Form.Label>Last Name</Form.Label>
-            <Form.Control onChange={(e) => { this.handleChange("lastName", e.target.value) }} type="text" placeholder="Enter last name" />
+            <Form.Control onChange={(e) => { this.handleChange("lastName", e.target.value) }} type="text" placeholder="Enter last name" value={user.lastName} />
           </Form.Group>
           <Form.Group controlId="formEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control onChange={(e) => { this.handleChange("email", e.target.value) }} type="email" placeholder="Enter email" />
+            <Form.Control onChange={(e) => { this.handleChange("email", e.target.value) }} type="email" placeholder="Enter email" value={user.email} />
           </Form.Group>
           <Form.Group controlId="formPassword">
             <Form.Label>Passoword</Form.Label>
-            <Form.Control onChange={(e) => { this.handleChange("password", e.target.value) }} type="password" placeholder="Enter password" />
+            <Form.Control onChange={(e) => { this.handleChange("password", e.target.value) }} type="password" placeholder="Enter password" value={user.password} />
           </Form.Group>
           <Form.Group controlId="formLearningTarget">
             <Form.Label>Learning Targets</Form.Label>
-            <Form.Control onChange={(e) => { this.handleChange("learningTargets", e.target.options) }} as="select" multiple>
+            <Form.Control onChange={(e) => { this.handleChange("learningTargets", e.target.options) }} as="select" value={user.learningTargets} multiple>
               {
                 this.learningTargets.map(target => 
                   <option key={target}>{target}</option>
@@ -90,7 +88,7 @@ class Profile extends Component {
           </Form.Group>
           <Form.Group controlId="formLocation">
             <Form.Label>Location</Form.Label>
-            <Form.Control value={this.state.location} onChange={(e) => { this.handleChange("location", e.target.value) }} as="select">
+            <Form.Control value={this.state.location} onChange={(e) => { this.handleChange("location", e.target.value) }} as="select" value={user.location}>
               {
                 this.locations.map(location => 
                   <option key={location}>{location}</option>
@@ -103,10 +101,10 @@ class Profile extends Component {
           </Button>
         </Form>
       </div>    
-      </div>     
+      </div>  
     )
   }
-}
+  }
 
 Profile.propTypes = {
   updateUser: PropTypes.func,

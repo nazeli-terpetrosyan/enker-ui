@@ -1,4 +1,4 @@
-// TODO: use --> import Socket from '../socket';
+import Socket from '../socket';
 
 const apiHost = process.env.REACT_APP_API_HOST  || 'http://localhost:3001';
 const axios = require('axios');
@@ -43,9 +43,15 @@ export const loginUser = (email, password) => {
     .then(response => {
       sessionStorage.setItem('email', email);
       sessionStorage.setItem('password', password);
-      dispatch({
-        type: 'LOGIN_USER',
-        payload: response.data
+      Socket.connect(users => {
+        users.emit('login', {
+          email,
+          password
+        });
+        dispatch({
+          type: 'LOGIN_USER',
+          payload: response.data
+        });
       })
     })
     .catch(err => {

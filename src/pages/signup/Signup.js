@@ -47,8 +47,8 @@ class Signup extends Component {
         <Redirect to={{
           pathname: '/profile',
         }} />
-      )
-    }
+     )
+   }
     return (
       <div className="contain2">
       <div className="signup">
