@@ -73,12 +73,25 @@ export const updateUser = () => {
   }
 }
 
-export const logoutUser = (user) => {
+export const logoutUser = (user, email, password) => {
   /**
    * TODO: Logout user action
    * 1. Emit logout action via socket
    * 2. Clear Session Storage
    */
+  return dispatch => {
+    sessionStorage.clear();
+    Socket.connect(users => {
+      users.emit('logout', {
+        email,
+        password
+      });
+      dispatch({
+        type: 'LOGOUT_USER',
+        payload: user
+      });
+    });
+  }
 }
 
 export const startChat = (withUser) => {

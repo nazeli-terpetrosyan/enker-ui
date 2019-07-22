@@ -1,21 +1,22 @@
 import React from 'react';
 
-import {Nav, Navbar} from 'react-bootstrap';
+import {Nav, Navbar, Button} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import tumoLogoArm from './tumo-logo-arm.png';
 import ProfileIcon from './ProfileIcon';
 import NetworkIcon from './NetworkIcon';
 import SearchIcon from './SearchIcon';
+import {Redirect} from 'react-router-dom';
 
 import './navigationbar.css';
 
-export default ({user, location}) => (
+export default ({user, location, logoutUser}) => (
   <div className="global-nav">
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <LinkContainer to="/">
         <Navbar.Brand><img alt="tumo" className="tumo-logo" src={tumoLogoArm} /></Navbar.Brand>
       </LinkContainer>
-      <Navbar.Collapse id="basic-navbar-nav">
+      {user ? <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           {
             // user.data ? (
@@ -39,16 +40,10 @@ export default ({user, location}) => (
             // ) : null
           }
         </Nav>
-      </Navbar.Collapse>
-      {
-        /**
-         * TODO: When user logged in
-         * 1. Text Hello [user first name]!
-         * 2. Button to logout user
-         * 3. If connected to peer a button to chat
-         */
-        // <span className="hello">Hello, {user.firstName}!</span>
-      }
+        </Navbar.Collapse>: null }
+        
+        { user ? <span className="hello">Hello, {user.firstName}!</span>: null }
+        {user ? <Button onClick={() => logoutUser()} variant="warning" type="submit"> Log out </Button>: null}
     </Navbar>
   </div>
 );
