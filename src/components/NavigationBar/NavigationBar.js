@@ -6,7 +6,6 @@ import tumoLogoArm from './tumo-logo-arm.png';
 import ProfileIcon from './ProfileIcon';
 import NetworkIcon from './NetworkIcon';
 import SearchIcon from './SearchIcon';
-import {Redirect} from 'react-router-dom';
 
 import './navigationbar.css';
 
@@ -43,7 +42,7 @@ export default ({user, location, logoutUser}) => (
         </Navbar.Collapse>: null }
         
         { user ? <span className="hello">Hello, {user.firstName}!</span>: null }
-        {user ? <Button onClick={() => logoutUser()} variant="warning" type="submit"> Log out </Button>: null}
+        {user ? <LinkContainer to="/"><Button onClick={() => logoutUser()} variant="warning" type="submit"> Log out </Button></LinkContainer>: null}
     </Navbar>
   </div>
 );
