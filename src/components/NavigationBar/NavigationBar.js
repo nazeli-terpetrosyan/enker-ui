@@ -7,6 +7,7 @@ import ProfileIcon from './ProfileIcon';
 import NetworkIcon from './NetworkIcon';
 import SearchIcon from './SearchIcon';
 
+
 import './navigationbar.css';
 
 export default ({user, location, logoutUser}) => (
