@@ -7,7 +7,8 @@ import NavigationBar from './NavigationBar';
 const mapStateToProps = state => ({
   // TODO: Provide user data from state
     user: state.user.data,
-    userError: state.user.error
+    userError: state.user.error,
+    withUser: state.network.withUser
 })
 
 const mapDispatchToProps = dispatch => {

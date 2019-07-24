@@ -1,6 +1,5 @@
 *{
     box-sizing: border-box;
-    -webkit-transition: background 0.5s, color 0.5s;
 }
 .contain{
   background-image: url('./bg.jpg');

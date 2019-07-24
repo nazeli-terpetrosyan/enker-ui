@@ -35,6 +35,11 @@ const network = (state = {withUser: null, receiver: false}, action) => {
      * 2. Stopping Chat
      * 3. Logging out user
      */
+    case 'START_CHAT':
+      return { ...state, withUser: action.withUser }
+    case 'IM_THE_RECEIVE':
+      return { ...state, receiver: true }
+    case 'STOP_CHAT':
     default:
       return state;
   }
