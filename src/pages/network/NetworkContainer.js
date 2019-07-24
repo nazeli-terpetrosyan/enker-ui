@@ -2,11 +2,16 @@ import { connect } from 'react-redux'
 
 import Network from './Network';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
   /**
    * TODO: pass in logged in user, and peer user
    */
-});
+  return {
+    user: state.user.data,
+    userError: state.user.error,
+    withUser: state.network.withUser
+  }
+}
 
 const mapDispatchToProps = dispatch => ({})
 
