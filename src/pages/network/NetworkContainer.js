@@ -9,7 +9,8 @@ const mapStateToProps = state => {
   return {
     user: state.user.data,
     userError: state.user.error,
-    withUser: state.network.withUser
+    withUser: state.network.withUser,
+    reciever: state.network.reciever
   }
 }
 

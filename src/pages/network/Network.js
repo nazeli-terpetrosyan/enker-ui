@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Col, Row, Tab, Tabs } from 'react-bootstrap';
 import { Widget, addResponseMessage} from 'react-chat-widget';
 import ReactQuill from 'react-quill';
+import VideoChat from "./VideoChat"
 
 import 'react-chat-widget/lib/styles.css';
 import 'react-quill/dist/quill.snow.css';
@@ -72,10 +73,12 @@ class NetworkPage extends Component {
             }
           </Col>
           <Col>
-            <div>TODO: add VideoChat element
-              {
-                // TODO: add video chat element
-              }
+            <div>
+              <VideoChat 
+                user = {this.props.user}
+                caller = {this.props.receiver ? this.props.withUser: this.props.user}
+                receiver = {this.props.receiver ? this.props.user: this.props.withUser}
+                />
             </div>
           </Col>
         </Row>
