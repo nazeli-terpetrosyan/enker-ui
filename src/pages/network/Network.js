@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Col, Row, Tab, Tabs } from 'react-bootstrap';
+import { Col, Row, Tab, Tabs } from 'react-bootstrap';
 import { Widget, addResponseMessage} from 'react-chat-widget';
 import ReactQuill from 'react-quill';
 import VideoChat from "./VideoChat"
@@ -53,19 +53,21 @@ class NetworkPage extends Component {
   }
   render() {
     return (
-      <Container fluid={true} className="p-0">
+      <div className="contain5">
         { 
           // TODO: Add chat widget 
           <Widget
           handleNewUserMessage={this.handleNewUserMessage}
         />
         } 
+        <div className="net">
         <Row noGutters={true}>
           <Col>
+          <div className="doc_can">
             { 
               <Tabs defaultActiveKey="document" id="uncontrolled-tab-example">
               <Tab eventKey="document" title="Document">
-              <ReactQuill value={this.state.text}
+              <ReactQuill className="doc" value={this.state.text}
                   onChange={(content, delta, source, editor) =>{this.handleChange(source, editor)}} />
               </Tab>
               <Tab eventKey="canvas" title="Canvas">
@@ -73,9 +75,10 @@ class NetworkPage extends Component {
               </Tab>
             </Tabs>
             }
+            </div>
           </Col>
           <Col>
-            <div>
+            <div className="video">
               <VideoChat 
                 user = {this.props.user}
                 caller = {this.props.receiver ? this.props.withUser: this.props.user}
@@ -84,7 +87,8 @@ class NetworkPage extends Component {
             </div>
           </Col>
         </Row>
-      </Container>
+        </div>
+      </div>
     )
   }
 }

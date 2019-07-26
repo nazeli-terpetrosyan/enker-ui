@@ -1,6 +1,6 @@
 import React from 'react';
 import LioWebRTC from 'liowebrtc';
-import {Badge, Button} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import endCallIcon from './end-call-icon.png';
 import callIcon from './phone-call.png';
 
@@ -111,13 +111,13 @@ class VideoChat extends React.Component {
       <div>
         {this.generateRemotes()}
         <div>
-            <video controls height="auto" autoPlay
+            <video className="vid" controls height="auto" autoPlay
               // Important: The local video element needs to have a ref
               ref={(vid) => { this.localVid = vid; }}
             />
             <p>{this.state.nick}</p>
         </div>
-        <div className="position-absolute">
+        <div className="position-absolute buttons">
           <Button disabled={this.state.inCall ? true: null}
           variant="link" onClick={() =>{this.startCall()}}>
           <img width="45px" src={callIcon} alt="call" />

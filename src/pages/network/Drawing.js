@@ -76,7 +76,9 @@ class Drawing extends React.Component {
 
     this.canvas.width = this.container.parentElement.parentElement.offsetWidth; // grab the tab container width - bug
     window.addEventListener('resize', () => {
-      this.canvas.width = this.container.offsetWidth;
+      if (this.canvas) {
+        this.canvas.width = this.container.offsetWidth;
+      }
     });
     Socket.connect(users => {
       users.on('drawing-message', (fromUser, line) => {
@@ -92,14 +94,14 @@ class Drawing extends React.Component {
   render() {
     return (
       <div ref={el => this.container = el} style={{height: "500px", border: "1px solid black"}}>
-        <Button variant="info" onClick={() => {this.clear(); this.sendPaintData()}}>Clear</Button>
-        <canvas 
+        <canvas
           ref={(ref) => (this.canvas = ref)}
           onMouseDown={this.onMouseDown}
           onMouseLeave={this.endPaintEvent}
           onMouseUp={this.endPaintEvent}
           onMouseMove={this.onMouseMove}
           id="canvas" width="100px" height="500px"></canvas>
+          <Button className="clear" variant="info" onClick={() => {this.clear(); this.sendPaintData()}}>Clear</Button>
       </div>
     )
   }
