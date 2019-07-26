@@ -3,6 +3,7 @@ import { Container, Col, Row, Tab, Tabs } from 'react-bootstrap';
 import { Widget, addResponseMessage} from 'react-chat-widget';
 import ReactQuill from 'react-quill';
 import VideoChat from "./VideoChat"
+import Drawing from './Drawing';
 
 import 'react-chat-widget/lib/styles.css';
 import 'react-quill/dist/quill.snow.css';
@@ -68,6 +69,7 @@ class NetworkPage extends Component {
                   onChange={(content, delta, source, editor) =>{this.handleChange(source, editor)}} />
               </Tab>
               <Tab eventKey="canvas" title="Canvas">
+              <Drawing withUser={this.props.withUser} currentUser={this.props.currentUser} />
               </Tab>
             </Tabs>
             }
